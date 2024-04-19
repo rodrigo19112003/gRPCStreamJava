@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "com.proto.saludo";
+
+message GreetingRequest {
+    string name = 1;
+}
+
+message GreetingResponse{
+    string result = 1;
+}
+
+service GreetingService{
+    rpc greeting(GreetingRequest) returns (GreetingResponse);
+    rpc greetingStream(GreetingRequest) returns (stream GreetingResponse);
+    rpc fileStream(GreetingRequest) returns (stream GreetingResponse);
+}
